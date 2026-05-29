@@ -40,6 +40,60 @@ body::before {
   pointer-events: none; z-index: 9999; opacity: 0.35;
 }
 
+
+/* LIGHT MODE */
+body.light-mode {
+  --bg: #f5f5f0;
+  --surface: #ebebе5;
+  --surface2: #e0e0da;
+  --border: #d0d0c8;
+  --border2: #c0c0b8;
+  --text: #1a1a1a;
+  --muted: #666;
+  --muted2: #999;
+  --white: #0d0d0d;
+}
+body.light-mode { background: var(--bg); color: var(--text); }
+body.light-mode nav { background: rgba(245,245,240,0.94); }
+body.light-mode .stat-card, body.light-mode .skill-block,
+body.light-mode .approach-card, body.light-mode .exp-item,
+body.light-mode .fit-card, body.light-mode .chart-box,
+body.light-mode .creative-card, body.light-mode .contact-row,
+body.light-mode .modal { background: #ebebе5; }
+body.light-mode footer, body.light-mode #contact { background: var(--bg); }
+body.light-mode #skills { background: #e8e8e2; }
+body.light-mode #formats { background: #e8e8e2; }
+body.light-mode .hero::after { background: radial-gradient(circle, rgba(180,220,30,0.08) 0%, transparent 65%); }
+
+/* DARK/LIGHT TOGGLE BTN */
+.theme-toggle {
+  font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.1em;
+  background: none; border: 1px solid var(--border); color: var(--muted);
+  padding: 5px 10px; cursor: pointer; transition: all 0.2s; display: flex; align-items: center; gap: 6px;
+}
+.theme-toggle:hover { border-color: var(--accent); color: var(--accent); }
+
+/* LANG TOGGLE BTN */
+.lang-toggle {
+  font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+  background: none; border: 1px solid var(--border); color: var(--muted);
+  padding: 5px 10px; cursor: pointer; transition: all 0.2s;
+}
+.lang-toggle:hover { border-color: var(--accent); color: var(--accent); }
+.lang-toggle.active { border-color: rgba(200,241,53,0.5); color: var(--accent); background: rgba(200,241,53,0.06); }
+
+/* CV DOWNLOAD BTN */
+.cv-btn {
+  font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
+  background: var(--accent); color: #0d0d0d; border: none; padding: 7px 14px; cursor: pointer;
+  font-weight: 700; transition: all 0.2s; display: flex; align-items: center; gap: 6px; text-decoration: none;
+}
+.cv-btn:hover { background: #fff; transform: translateY(-1px); }
+
+/* NAV ACTIONS */
+.nav-actions { display: flex; align-items: center; gap: 8px; }
+
+
 /* NAV */
 nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 200;
@@ -296,6 +350,73 @@ h2 em { font-family: 'Instrument Serif', serif; font-style: italic; color: var(-
   text-transform: uppercase;
 }
 
+
+/* ── META ADS EXPERTISE ─────────────────────────────────────── */
+#meta-expertise { background: var(--bg); }
+.expertise-intro { font-family: 'DM Mono', monospace; font-size: 12px; color: var(--muted); line-height: 1.9; max-width: 720px; margin-bottom: 52px; }
+.expertise-intro strong { color: var(--accent); }
+
+.expertise-pillars { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; margin-bottom: 3px; }
+
+.pillar {
+  background: var(--surface); border: 1px solid var(--border);
+  padding: 36px 32px; position: relative; overflow: hidden;
+  transition: border-color 0.25s;
+}
+.pillar:hover { border-color: rgba(200,241,53,0.25); }
+.pillar::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, var(--accent), transparent);
+  opacity: 0; transition: opacity 0.25s;
+}
+.pillar:hover::before { opacity: 1; }
+
+.pillar-num {
+  font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.2em;
+  color: var(--accent); margin-bottom: 10px; display: block;
+}
+.pillar-title {
+  font-size: 18px; font-weight: 800; color: var(--white);
+  line-height: 1.2; margin-bottom: 6px; letter-spacing: -0.02em;
+}
+.pillar-sub {
+  font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--accent); margin-bottom: 20px; opacity: 0.7;
+}
+.pillar-items { display: flex; flex-direction: column; gap: 14px; }
+.pillar-item { display: flex; gap: 12px; }
+.pillar-item-dot {
+  width: 5px; height: 5px; border-radius: 50%; background: var(--accent);
+  flex-shrink: 0; margin-top: 5px; opacity: 0.7;
+}
+.pillar-item-body { flex: 1; }
+.pillar-item-label {
+  font-size: 12px; font-weight: 700; color: var(--white);
+  margin-bottom: 3px; line-height: 1.3;
+}
+.pillar-item-desc {
+  font-family: 'DM Mono', monospace; font-size: 10px;
+  color: var(--muted); line-height: 1.7;
+}
+
+/* Case study callout */
+.expertise-callout {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  padding: 28px 32px;
+  display: grid; grid-template-columns: auto 1fr; gap: 24px; align-items: center;
+  margin-top: 3px;
+}
+.callout-icon { font-size: 28px; }
+.callout-label {
+  font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--accent); margin-bottom: 6px;
+}
+.callout-text { font-size: 14px; font-weight: 700; color: var(--white); line-height: 1.5; }
+.callout-sub { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--muted); margin-top: 4px; line-height: 1.7; }
+/* ── END EXPERTISE ───────────────────────────────────────────── */
+
 /* HOW I WORK */
 .approach-intro { font-family: 'DM Mono', monospace; font-size: 13px; color: var(--muted); line-height: 1.9; max-width: 680px; margin-bottom: 48px; }
 .approach-intro strong { color: var(--accent); }
@@ -307,6 +428,86 @@ h2 em { font-family: 'Instrument Serif', serif; font-style: italic; color: var(-
 .approach-list li { font-family: 'DM Mono', monospace; font-size: 11px; line-height: 1.7; color: #777; display: flex; gap: 10px; }
 .ali { color: var(--accent); flex-shrink: 0; font-size: 10px; padding-top: 2px; }
 .approach-list li:last-child { color: var(--text); }
+
+
+/* ── CAMPAIGN RADAR ──────────────────────────────────────────── */
+.radar-wrap {
+  position: relative; width: 420px; height: 420px;
+  flex-shrink: 0; margin: auto;
+}
+.radar-svg { width: 100%; height: 100%; }
+
+/* concentric rings */
+.radar-ring { fill: none; stroke: rgba(200,241,53,0.08); stroke-width: 1; }
+.radar-ring-mid { stroke: rgba(200,241,53,0.13); }
+.radar-ring-inner { stroke: rgba(200,241,53,0.18); }
+
+/* cross-hair lines */
+.radar-axis { stroke: rgba(200,241,53,0.07); stroke-width: 0.7; }
+
+/* sweep gradient sector */
+.radar-sweep {
+  transform-origin: 210px 210px;
+  animation: sweep 4s linear infinite;
+}
+@keyframes sweep {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* market dots */
+.radar-dot { transition: r 0.2s; cursor: default; }
+.radar-dot:hover { r: 7; }
+.radar-dot-ring {
+  fill: none; stroke-width: 1.5;
+  transform-box: fill-box; transform-origin: center;
+}
+
+/* ping animation — staggered per market */
+@keyframes ping {
+  0%   { opacity: 0.9; r: 4; }
+  60%  { opacity: 0.2; r: 18; }
+  100% { opacity: 0;   r: 24; }
+}
+
+/* market label */
+.radar-label {
+  font-family: 'DM Mono', monospace; font-size: 9px;
+  fill: rgba(200,241,53,0.6); letter-spacing: 0.12em;
+  pointer-events: none;
+}
+.radar-label-flag { font-size: 11px; }
+
+/* center blip */
+.radar-center { animation: centerPulse 2s ease-in-out infinite; }
+@keyframes centerPulse {
+  0%, 100% { opacity: 0.6; r: 3; }
+  50%       { opacity: 1;   r: 5; }
+}
+
+/* glow on the sweep arm */
+.sweep-arm {
+  stroke: rgba(200,241,53,0.6); stroke-width: 1.5;
+  transform-origin: 210px 210px;
+  animation: sweep 4s linear infinite;
+  filter: drop-shadow(0 0 3px rgba(200,241,53,0.4));
+}
+.sweep-glow {
+  transform-origin: 210px 210px;
+  animation: sweep 4s linear infinite;
+}
+
+/* live badge */
+.radar-live {
+  font-family: 'DM Mono', monospace; font-size: 8px; letter-spacing: 0.2em;
+  fill: rgba(200,241,53,0.5); text-transform: uppercase;
+}
+.radar-live-dot { animation: liveBlink 1s ease-in-out infinite; }
+@keyframes liveBlink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.1; }
+}
+/* ── END RADAR ───────────────────────────────────────────────── */
 
 /* METRICS DISCLAIMER */
 .metrics-disclaimer {
@@ -426,8 +627,11 @@ option { background: var(--surface); }
     <li><a href="#about">About</a></li>
     <li><a href="#skills">Skills</a></li>
     <li><a href="#approach">Approach</a></li>
+    <li><a href="#meta-expertise">Expertise</a></li>
     <li><a href="#experience">Experience</a></li>
     <li><a href="#creatives">Creatives</a></li>
+    <li><a href="#data-research">Research</a></li>
+    <li><a href="#beyond">Beyond</a></li>
     <li><a href="#photography">Photography</a></li>
     <li><a href="#fit">Why Me</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -435,12 +639,17 @@ option { background: var(--surface); }
     <li><a href="https://www.instagram.com/filiperemitaphotography/" target="_blank">IG ↗</a></li>
     <li><a href="https://www.facebook.com/eremitasfiliperemitaphotography" target="_blank">FB ↗</a></li>
   </ul>
+  <div class="nav-actions">
+    <button class="lang-toggle" id="langToggle" onclick="toggleLang()">🇸🇮 SLO</button>
+    <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()">☀️ Light</button>
+    <button class="cv-btn" onclick="downloadCV()">↓ CV</button>
+  </div>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
   <div class="hero-left">
-    <div class="hero-tag">I Make Ads That Sell. Not Just Look Good.</div>
+    <div class="hero-tag" data-en="I Make Ads That Sell. Not Just Look Good." data-sl="Delam oglase, ki prodajajo. Ne samo lepo izgledajo.">I Make Ads That Sell. Not Just Look Good.</div>
     <h1>Meta Ads<br><em>Specialist</em></h1>
     <p class="hero-sub">Meta Ads specialist · AI prompt engineer · Creative lead · Cross-border scaling across IT, HU, PL, CZ · 6-figure spend managed profitably · GEO · CRO · CAPI · AI-native workflow. Based in Slovenia.</p>
     <div class="hero-cta">
@@ -449,6 +658,22 @@ option { background: var(--surface); }
     </div>
   </div>
   <div class="hero-right">
+    <div class="stat-card reveal">
+      <div><div class="stat-label">Meta Ad Spend Managed</div><div class="stat-sub">Profitably, across 13 markets</div></div>
+      <div><div class="stat-val">6<span style="font-size:16px;color:var(--muted)">fig+</span></div><div class="stat-sub">€€€</div></div>
+    </div>
+    <div class="stat-card reveal">
+      <div><div class="stat-label">Online Advertising</div><div class="stat-sub">2Digit d.o.o. — Full-time</div></div>
+      <div><div class="stat-val">5+</div><div class="stat-sub">years</div></div>
+    </div>
+    <div class="stat-card reveal">
+      <div><div class="stat-label">Active Markets</div><div class="stat-sub">IT · HU · PL · CZ · SK · HR + more</div></div>
+      <div><div class="stat-val">13</div><div class="stat-sub">countries</div></div>
+    </div>
+    <div class="stat-card reveal">
+      <div><div class="stat-label">Avg. CPC</div><div class="stat-sub">Across all active campaigns</div></div>
+      <div><div class="stat-val">€0.12</div><div class="stat-sub">30-day avg</div></div>
+    </div>
     <div class="stat-card reveal">
       <div><div class="stat-label">Meta Ad Spend Managed</div><div class="stat-sub">Profitably, across 13 markets</div></div>
       <div><div class="stat-val">6<span style="font-size:16px;color:var(--muted)">fig+</span></div><div class="stat-sub">€€€</div></div>
@@ -508,14 +733,14 @@ option { background: var(--surface); }
 <section id="about">
   <div class="section-header reveal">
     <span class="section-num">01 —</span>
-    <h2>About <em>Me</em></h2>
+    <h2 data-en="About <em>Me</em>" data-sl="O <em>meni</em>">About <em>Me</em></h2>
   </div>
   <div class="about-grid">
     <div class="about-text reveal">
       <p><strong>Meta Ads specialist · AI prompt engineer · Creative lead · Growth marketer.</strong> I'm Filip Eremita, based in Rečica ob Savinji, Slovenia.</p>
-      <p>Currently at <span class="hi">2Digit d.o.o.</span> — managing large-scale Meta campaigns across <strong>Italy, Hungary, Poland, and Czechia</strong>, with 6-figure monthly ad spend managed profitably. My focus is on <strong>high-performance e-commerce architecture</strong>: high-converting product pages, cross-border scaling, and creative systems that compound.</p>
-      <p>I have a proven track record with <strong>high-ticket products</strong>, <strong>Advantage+ Shopping vs. CBO/ABO</strong> campaign architecture, Pixel &amp; CAPI setup, and Lookalike scaling. I also navigate <strong>Generative Engine Optimization (GEO)</strong> — adapting content to capture high-intent traffic from AI-powered search engines.</p>
-      <p>I work AI-first: <strong>Sora, Veo3.1, Gemini, Nano-banana, Firefly</strong> are daily production instruments — not experiments. I also do <strong>vibe coding</strong>: building custom tools, dashboards, and automations when off-the-shelf solutions don't fit.</p>
+      <p>I'm a digital marketing and conversion optimisation specialist with a strong technical and analytical background. My passion is finding the intersection of <strong>data and creativity</strong> — from designing high-converting Meta Ads campaigns and UX/UI landing page audits, to independent web development and data analytics. I approach every project holistically: I understand the psychology of purchase through <strong>Direct Response copywriting</strong> as well as the technical stack behind web analytics and data tracking.</p>
+      <p>Currently at <span class="hi">2Digit d.o.o.</span> — managing large-scale Meta campaigns across <strong>Italy, Hungary, Poland, and Czechia</strong>, with 6-figure monthly ad spend managed profitably. Proven track record with <strong>Advantage+ Shopping vs. CBO/ABO</strong> architecture, Pixel &amp; CAPI implementation, Lookalike scaling, and <strong>Generative Engine Optimization (GEO)</strong>.</p>
+      <p>I work AI-first: <strong>Sora, Veo3.1, Gemini, Firefly</strong> are daily production tools. I also <strong>vibe code</strong> — building custom dashboards, automations, and tools (HTML, CSS, JS, GitHub Pages) when off-the-shelf doesn't cut it.</p>
       <div class="lang-row">
         <div class="lang-badge a">🇸🇮 Slovenian — Native</div>
         <div class="lang-badge a">🇬🇧 English — C2 Near-Native</div>
@@ -559,7 +784,7 @@ option { background: var(--surface); }
 <section id="skills">
   <div class="section-header reveal">
     <span class="section-num">02 —</span>
-    <h2>Core <em>Skills</em></h2>
+    <h2 data-en="Core <em>Skills</em>" data-sl="Ključne <em>veščine</em>">Core <em>Skills</em></h2>
   </div>
   <div class="skills-grid">
     <div class="skill-block reveal">
@@ -604,6 +829,27 @@ option { background: var(--surface); }
       <div class="skill-desc">Building custom tools, dashboards, and automations with AI assistance — Claude, GPT, Cursor — when off-the-shelf solutions don't fit the workflow. HTML, CSS, JS, Python for practical production and campaign tooling. Ship fast, iterate faster.</div>
       <div class="skill-tags"><span class="tag a">Claude</span><span class="tag a">Cursor</span><span class="tag c">HTML/CSS/JS</span><span class="tag">Python</span><span class="tag b">Automations</span></div>
     </div>
+
+    <div class="skill-block reveal">
+      <span class="skill-ico">⚙️</span><span class="skill-arrow">↗</span>
+      <div class="skill-title">Technology & Development</div>
+      <div class="skill-desc">Independent web development for marketing and data projects. Built and deployed a real-time weather station dashboard on GitHub Pages with external API integration (Weather Underground), interactive JS charts, and optimised UI/UX for complex data display. Pixel/CAPI implementation from scratch.</div>
+      <div class="skill-tags"><span class="tag a">HTML/CSS/JS</span><span class="tag a">GitHub Pages</span><span class="tag">API integrations</span><span class="tag">Pixel/CAPI</span><span class="tag b">Vibe Coding</span></div>
+    </div>
+
+    <div class="skill-block reveal">
+      <span class="skill-ico">📊</span><span class="skill-arrow">↗</span>
+      <div class="skill-title">Data Analytics & Market Research</div>
+      <div class="skill-desc">KPI tracking (ROAS, CPA, CTR) across 13 European markets. Meteorological data processing and visualisation for local climate analysis. Continuous monitoring of global financial markets — cryptocurrency (Top 100 market cap), aerospace equities (LUNR), and European automotive market dynamics (premium segment, financing structures).</div>
+      <div class="skill-tags"><span class="tag a">ROAS · CPA · CTR</span><span class="tag">Data viz</span><span class="tag b">Crypto analysis</span><span class="tag">Meteorological data</span><span class="tag">Market trends</span></div>
+    </div>
+
+    <div class="skill-block reveal">
+      <span class="skill-ico">✍️</span><span class="skill-arrow">↗</span>
+      <div class="skill-title">Direct Response & CRO</div>
+      <div class="skill-desc">Landing page audits focused on identifying conversion friction and increasing CR. Direct Response copywriting applying purchase psychology: pain-point hooks, transformation storytelling, urgency. A/B testing frameworks for headlines, CTAs, and visual hierarchy. Ad message ↔ landing page alignment across all markets and languages.</div>
+      <div class="skill-tags"><span class="tag a">Landing Page Audits</span><span class="tag a">A/B Testing</span><span class="tag">DR Copywriting</span><span class="tag b">UX/UI review</span><span class="tag">CRO</span></div>
+    </div>
   </div>
 </section>
 
@@ -611,7 +857,7 @@ option { background: var(--surface); }
 <section id="approach">
   <div class="section-header reveal">
     <span class="section-num">03 —</span>
-    <h2>How I <em>Work</em></h2>
+    <h2 data-en="How I <em>Work</em>" data-sl="Kako <em>delam</em>">How I <em>Work</em></h2>
   </div>
 
   <p class="approach-intro reveal">
@@ -671,11 +917,161 @@ option { background: var(--surface); }
   </div>
 </section>
 
+
+<!-- META ADS EXPERTISE -->
+<section id="meta-expertise">
+  <div class="section-header reveal">
+    <span class="section-num">— —</span>
+    <h2>Meta Ads <em>Expertise</em></h2>
+  </div>
+  <p class="expertise-intro reveal">
+    A Senior/Expert-level breakdown of my Meta Ads competencies across four pillars —
+    <strong>strategy, creative, technical tracking,</strong> and <strong>post-click optimisation</strong>.
+    The best media buyers don't just click around Ads Manager.
+    They master psychology, technology, and data simultaneously.
+  </p>
+
+  <div class="expertise-pillars reveal">
+
+    <!-- PILLAR 1 -->
+    <div class="pillar">
+      <span class="pillar-num">01 ——</span>
+      <div class="pillar-title">Media Buying<br>& Strategy</div>
+      <div class="pillar-sub">Full-funnel architecture · Scaling · Data-driven decisions</div>
+      <div class="pillar-items">
+        <div class="pillar-item">
+          <div class="pillar-item-dot"></div>
+          <div class="pillar-item-body">
+            <div class="pillar-item-label">Full-Funnel Architecture</div>
+            <div class="pillar-item-desc">TOFU → MOFU → BOFU campaign design. Different messaging for cold, warm, and hot audiences. Retargeting sequences that compound over time.</div>
+          </div>
+        </div>
+        <div class="pillar-item">
+          <div class="pillar-item-dot"></div>
+          <div class="pillar-item-body">
+            <div class="pillar-item-label">Budget Allocation & Scaling</div>
+            <div class="pillar-item-desc">CBO/ABO campaign structures, vertical and horizontal scaling strategies — while maintaining or improving target ROAS and CPA. Managing 6-figure monthly budgets profitably.</div>
+          </div>
+        </div>
+        <div class="pillar-item">
+          <div class="pillar-item-dot"></div>
+          <div class="pillar-item-body">
+            <div class="pillar-item-label">Data-Driven Decision Making</div>
+            <div class="pillar-item-desc">Real-time analysis of CTR, CPM, CPC, Hook Rate, Hold Rate. Fast identification of winners, ruthless cutting of losers. No emotional attachment to creatives — only metrics.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PILLAR 2 -->
+    <div class="pillar">
+      <span class="pillar-num">02 ——</span>
+      <div class="pillar-title">Creative Strategy<br>& Production</div>
+      <div class="pillar-sub">Angles · Hooks · Video prompts · DR Copywriting</div>
+      <div class="pillar-items">
+        <div class="pillar-item">
+          <div class="pillar-item-dot"></div>
+          <div class="pillar-item-body">
+            <div class="pillar-item-label">Angle & Hook Development</div>
+            <div class="pillar-item-desc">Systematic development and A/B testing of sales angles — problem demonstration with visual proof, health awareness funnels, lifestyle transformation narratives. The hook is the targeting.</div>
+          </div>
+        </div>
+        <div class="pillar-item">
+          <div class="pillar-item-dot"></div>
+          <div class="pillar-item-body">
+            <div class="pillar-item-label">Video Prompt Writing</div>
+            <div class="pillar-item-desc">Precise briefs for AI video production — tone, visual layout, per-second scenarios. First 3 seconds engineered for scroll-stopping. Hook rate optimisation as a KPI.</div>
+          </div>
+        </div>
+        <div class="pillar-item">
+          <div class="pillar-item-dot"></div>
+          <div class="pillar-item-body">
+            <div class="pillar-item-label">Direct Response Copywriting</div>
+            <div class="pillar-item-desc">Hook → Story/Educate → Offer → CTA framework. Multilingual (EN, IT, PL, SL, HU, CZ, SK) copy adapted to product, market, and funnel stage. Pain-point first, always.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PILLAR 3 -->
+    <div class="pillar">
+      <span class="pillar-num">03 ——</span>
+      <div class="pillar-title">Technical Meta<br>Marketing</div>
+      <div class="pillar-sub">Pixel · CAPI · QA · First-party data</div>
+      <div class="pillar-items">
+        <div class="pillar-item">
+          <div class="pillar-item-dot"></div>
+          <div class="pillar-item-body">
+            <div class="pillar-item-label">Advanced Tracking Implementation</div>
+            <div class="pillar-item-desc">End-to-end data flow between e-commerce store and Meta. Custom Event setup and debugging. Because of my HTML/CSS/JS background, I can read and fix tracking code directly — no intermediary needed.</div>
+          </div>
+        </div>
+        <div class="pillar-item">
+          <div class="pillar-item-dot"></div>
+          <div class="pillar-item-body">
+            <div class="pillar-item-label">Conversions API (CAPI)</div>
+            <div class="pillar-item-desc">Server-side tracking for accurate attribution and first-party data collection in the post-iOS 14 privacy era. Understanding of event deduplication and EMQ (Event Match Quality) optimisation.</div>
+          </div>
+        </div>
+        <div class="pillar-item">
+          <div class="pillar-item-dot"></div>
+          <div class="pillar-item-body">
+            <div class="pillar-item-label">Quality Assurance (QA)</div>
+            <div class="pillar-item-desc">Technical review of tracking implementation at code level. Dramatically reduces conversion reporting errors. A technical edge most marketers don't have.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PILLAR 4 -->
+    <div class="pillar">
+      <span class="pillar-num">04 ——</span>
+      <div class="pillar-title">Post-Click<br>Optimisation</div>
+      <div class="pillar-sub">CRO · UX/UI · Message Match · A/B</div>
+      <div class="pillar-items">
+        <div class="pillar-item">
+          <div class="pillar-item-dot"></div>
+          <div class="pillar-item-body">
+            <div class="pillar-item-label">Landing Page Audits</div>
+            <div class="pillar-item-desc">Structured reviews identifying friction points in the purchase flow. UX/UI improvement recommendations backed by campaign data — not guesswork. The ad gets the click; the page makes the sale.</div>
+          </div>
+        </div>
+        <div class="pillar-item">
+          <div class="pillar-item-dot"></div>
+          <div class="pillar-item-body">
+            <div class="pillar-item-label">Message Match</div>
+            <div class="pillar-item-desc">Perfect alignment between Meta ad visual/copy and landing page content. Same promise, same design language, same offer. Reduces bounce rate and increases CR measurably.</div>
+          </div>
+        </div>
+        <div class="pillar-item">
+          <div class="pillar-item-dot"></div>
+          <div class="pillar-item-body">
+            <div class="pillar-item-label">A/B Testing Landing Pages</div>
+            <div class="pillar-item-desc">Data-driven page iteration: buttons, layouts, product descriptions, hero sections. Changes proposed and implemented based on campaign performance signals, not assumptions.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Case Study Callout -->
+  <div class="expertise-callout reveal">
+    <div class="callout-icon">💡</div>
+    <div>
+      <div class="callout-label">Case Study Approach</div>
+      <div class="callout-text">How changing the first 3 seconds of a video hook + one CTA button adjustment lowered CPA significantly — with full tracking attribution.</div>
+      <div class="callout-sub">The most convincing portfolio work: a single end-to-end case study spanning creative production → tracking → landing page → ROAS outcome. Available on request.</div>
+    </div>
+  </div>
+
+</section>
+
 <!-- EXPERIENCE -->
 <section id="experience">
   <div class="section-header reveal">
     <span class="section-num">05 —</span>
-    <h2>Work <em>History</em></h2>
+    <h2 data-en="Work <em>History</em>" data-sl="Delovne <em>izkušnje</em>">Work <em>History</em></h2>
   </div>
   <div class="exp-list">
 
@@ -743,6 +1139,22 @@ option { background: var(--surface); }
       </div>
     </div>
 
+
+    <div class="exp-item reveal" style="border-left: 2px solid rgba(200,241,53,0.3); padding-left: 24px; margin-left: 8px;">
+      <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:12px;">
+        <div>
+          <div class="exp-role">Case Studies — E-Commerce & Product Marketing</div>
+          <div class="exp-company">2Digit d.o.o. · Selected Projects</div>
+        </div>
+        <div class="exp-date">2020 – Present</div>
+      </div>
+      <ul class="exp-bullets">
+        <li><strong>Wateraegis (Transparent Waterproof Sealant)</strong> — Full creative and copy strategy for a technical home repair product. Developed before/after visual proof frameworks, aligned ad messaging with landing page UX to minimise post-click friction. Scaled across CZ/SK markets.</li>
+        <li><strong>WaterGrade (Water Quality Testing Device)</strong> — Awareness and conversion funnel design for a B2C health-adjacent product. Built educational-to-sales creative sequences targeting health-conscious homeowners.</li>
+        <li><strong>Landing Page Auditing</strong> — Regular structured audits across all active product pages: identifying friction points, misaligned messaging, and UX drop-off areas. Recommendations implemented directly or briefed to dev team.</li>
+        <li><strong>Weather Station Dashboard</strong> — Independent full-stack project: designed, built, and deployed a real-time meteorological web app on GitHub Pages. Integrated Weather Underground API, built custom JS data visualisations, and optimised UI for complex multi-metric display (wind speed, precipitation, pressure trends).</li>
+      </ul>
+    </div>
   </div>
 </section>
 
@@ -750,7 +1162,7 @@ option { background: var(--surface); }
 <section id="creatives">
   <div class="section-header reveal">
     <span class="section-num">05 —</span>
-    <h2>Winner <em>Creatives</em></h2>
+    <h2 data-en="Winner <em>Creatives</em>" data-sl="Zmagovalni <em>oglasi</em>">Winner <em>Creatives</em></h2>
   </div>
 
   <p class="creatives-intro reveal">
@@ -810,7 +1222,7 @@ option { background: var(--surface); }
 <section id="formats">
   <div class="section-header reveal">
     <span class="section-num">06 —</span>
-    <h2>Ad <em>Formats</em></h2>
+    <h2 data-en="Ad <em>Formats</em>" data-sl="Oglaševalski <em>formati</em>">Ad <em>Formats</em></h2>
   </div>
   <p class="formats-intro reveal">
     Producing natively in every required format — not just resizing, but rethinking visual hierarchy, CTA placement, and composition for each ratio and platform placement context.
@@ -836,11 +1248,114 @@ option { background: var(--surface); }
 </section>
 
 
+
+<!-- DATA & RESEARCH -->
+<section id="data-research" style="background: var(--surface);">
+  <div class="section-header reveal">
+    <span class="section-num">— —</span>
+    <h2>Data & <em>Research</em></h2>
+  </div>
+  <div class="approach-grid">
+    <div class="approach-card reveal">
+      <div class="approach-card-label">Meteorological Analytics</div>
+      <ul class="approach-list">
+        <li><span class="ali">✦</span> Real-time local weather data processing & visualisation</li>
+        <li><span class="ali">✦</span> Analysis of extreme weather events in Zgornja Savinjska</li>
+        <li><span class="ali">✦</span> "Severni fen" (North Foehn) phenomenon tracking & documentation</li>
+        <li><span class="ali">✦</span> Windstorm impact mapping — regional data patterns</li>
+        <li><span class="ali">✦</span> Custom dashboard built on GitHub Pages + Weather Underground API</li>
+        <li><span class="ali">✦</span> Ongoing station data archive & trend visualisation</li>
+      </ul>
+    </div>
+    <div class="approach-card reveal">
+      <div class="approach-card-label">Financial Markets</div>
+      <ul class="approach-list">
+        <li><span class="ali">✦</span> Cryptocurrency market analysis — Top 100 market cap tracking</li>
+        <li><span class="ali">✦</span> Macro trend monitoring: BTC cycles, altcoin rotation</li>
+        <li><span class="ali">✦</span> Aerospace equities: Intuitive Machines (LUNR) research</li>
+        <li><span class="ali">✦</span> European automotive market — premium segment dynamics</li>
+        <li><span class="ali">✦</span> Vehicle financing structures & total cost modelling</li>
+        <li><span class="ali">✦</span> Consumer market trend analysis for ad campaign positioning</li>
+      </ul>
+    </div>
+    <div class="approach-card reveal">
+      <div class="approach-card-label">Spatial & Visual Planning</div>
+      <ul class="approach-list">
+        <li><span class="ali">✦</span> Interior space planning with architectural precision</li>
+        <li><span class="ali">✦</span> Attic floor structures, oak vinyl layouts, material specifications</li>
+        <li><span class="ali">✦</span> Gallery railing positioning & safety compliance planning</li>
+        <li><span class="ali">✦</span> Macro photography layouts — scientific encyclopedia style</li>
+        <li><span class="ali">✦</span> Structured visual materials for nature documentation</li>
+        <li><span class="ali">✦</span> Detail-obsessed approach to composition and spatial logic</li>
+      </ul>
+    </div>
+    <div class="approach-card reveal">
+      <div class="approach-card-label">Marketing Research</div>
+      <ul class="approach-list">
+        <li><span class="ali">✦</span> Product positioning research across 13 EU markets</li>
+        <li><span class="ali">✦</span> Competitor creative audits — hook analysis, format trends</li>
+        <li><span class="ali">✦</span> Consumer psychology research for DR copywriting</li>
+        <li><span class="ali">✦</span> Ad fatigue cycle monitoring per niche & market</li>
+        <li><span class="ali">✦</span> Seasonal demand forecasting for campaign planning</li>
+        <li><span class="ali">✦</span> Landing page conversion benchmark research</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+
+<!-- BEYOND WORK -->
+<section id="beyond">
+  <div class="section-header reveal">
+    <span class="section-num">— —</span>
+    <h2>Beyond <em>Work</em></h2>
+  </div>
+  <p class="approach-intro reveal">The things that don't fit a job description — but make me a more precise, curious, and creative thinker.</p>
+  <div class="fit-grid">
+    <div class="fit-card reveal">
+      <div class="fit-num">🕷️</div>
+      <div class="fit-q">Tarantula & Arachnology</div>
+      <div class="fit-a">Terrarium keeping & research</div>
+      <div class="fit-detail">Specialist care of multiple tarantula species — requiring extreme precision, patience, and deep understanding of biological systems. The same attention to detail I apply to campaign architecture and data tracking.</div>
+    </div>
+    <div class="fit-card reveal">
+      <div class="fit-num">🔬</div>
+      <div class="fit-q">Macro Photography</div>
+      <div class="fit-a">Scientific encyclopedia visual style</div>
+      <div class="fit-detail">Advanced nature and macro photography with a focus on insects, spiders, and micro-wildlife. Self-designed layouts borrowing from scientific publication aesthetics — detail-first, zero compromise on composition.</div>
+    </div>
+    <div class="fit-card reveal">
+      <div class="fit-num">🌩️</div>
+      <div class="fit-q">Meteorology & Weather Tech</div>
+      <div class="fit-a">Personal weather station + custom dashboard</div>
+      <div class="fit-detail">Running a personal meteorological station in Zgornja Savinjska with a custom-built real-time web dashboard. Tracking local phenomena including the North Foehn wind and extreme weather events. Data nerd before it was a job requirement.</div>
+    </div>
+    <div class="fit-card reveal">
+      <div class="fit-num">🔑</div>
+      <div class="fit-q">Genealogical Research</div>
+      <div class="fit-a">Italian roots · surname "Eremita"</div>
+      <div class="fit-detail">Deep historical and etymological research into family heritage and Italian origins of the surname Eremita. The same systematic research approach I use for market analysis — cross-referencing sources, building timelines, finding patterns.</div>
+    </div>
+    <div class="fit-card reveal">
+      <div class="fit-num">📈</div>
+      <div class="fit-q">Crypto & Market Analysis</div>
+      <div class="fit-a">Top 100 market cap · macro cycles</div>
+      <div class="fit-detail">Continuous monitoring of cryptocurrency markets and global financial trends. Follows aerospace equities (LUNR), European auto market (premium segment), and macro BTC cycle analysis. Same analytical lens as campaign KPI tracking.</div>
+    </div>
+    <div class="fit-card reveal">
+      <div class="fit-num">🌲</div>
+      <div class="fit-q">Nature & Landscape Photography</div>
+      <div class="fit-a">Featured · Bored Panda · 121Clicks · CIPAF 2018</div>
+      <div class="fit-detail">10+ years of professional landscape and nature photography. Internationally recognised at CIPAF 2018 (China). Featured on Bored Panda and 121Clicks. Solo exhibition "Svet v malem" (macro series). Speaker at "Narava skozi oči fotografa" 2025.</div>
+    </div>
+  </div>
+</section>
+
 <!-- PHOTOGRAPHY -->
 <section id="photography">
   <div class="section-header reveal">
     <span class="section-num">08 —</span>
-    <h2>Photography <em>Portfolio</em></h2>
+    <h2 data-en="Photography <em>Portfolio</em>" data-sl="Fotografski <em>portfolio</em>">Photography <em>Portfolio</em></h2>
   </div>
   <p class="photo-intro reveal">
     10+ years of professional photography — nature, landscape, macro & wildlife.
@@ -898,7 +1413,7 @@ option { background: var(--surface); }
 <section id="fit">
   <div class="section-header reveal">
     <span class="section-num">09 —</span>
-    <h2>Why <em>Me</em></h2>
+    <h2 data-en="Why <em>Me</em>" data-sl="Zakaj <em>jaz</em>">Why <em>Me</em></h2>
   </div>
   <div class="fit-grid">
     <div class="fit-card reveal">
@@ -1390,6 +1905,58 @@ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
 // INIT
 renderGrid();
+
+// ── THEME TOGGLE ────────────────────────────────────────────────────────────
+function toggleTheme() {
+  const body = document.body;
+  const btn = document.getElementById('themeToggle');
+  body.classList.toggle('light-mode');
+  const isLight = body.classList.contains('light-mode');
+  btn.textContent = isLight ? '🌙 Dark' : '☀️ Light';
+  localStorage.setItem('fe_theme', isLight ? 'light' : 'dark');
+}
+(function initTheme() {
+  const saved = localStorage.getItem('fe_theme');
+  if (saved === 'light') {
+    document.body.classList.add('light-mode');
+    const btn = document.getElementById('themeToggle');
+    if (btn) btn.textContent = '🌙 Dark';
+  }
+})();
+
+// ── LANGUAGE TOGGLE ──────────────────────────────────────────────────────────
+let currentLang = localStorage.getItem('fe_lang') || 'en';
+
+function toggleLang() {
+  currentLang = currentLang === 'en' ? 'sl' : 'en';
+  applyLang(currentLang);
+  localStorage.setItem('fe_lang', currentLang);
+}
+
+function applyLang(lang) {
+  const btn = document.getElementById('langToggle');
+  btn.textContent = lang === 'en' ? '🇸🇮 SLO' : '🇬🇧 ENG';
+  btn.classList.toggle('active', lang === 'sl');
+
+  // Switch all elements with data-en / data-sl attributes
+  document.querySelectorAll('[data-en][data-sl]').forEach(el => {
+    el.innerHTML = lang === 'sl' ? el.dataset.sl : el.dataset.en;
+  });
+
+  // Hero tag special
+  const tag = document.querySelector('.hero-tag');
+  if (tag && tag.dataset[lang]) tag.textContent = tag.dataset[lang];
+}
+
+(function initLang() {
+  if (currentLang === 'sl') applyLang('sl');
+})();
+
+// ── CV DOWNLOAD ──────────────────────────────────────────────────────────────
+function downloadCV() {
+  window.print();
+}
+
 </script>
 </body>
 </html>
