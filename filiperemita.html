@@ -73,15 +73,6 @@ body.light-mode .hero::after { background: radial-gradient(circle, rgba(180,220,
 }
 .theme-toggle:hover { border-color: var(--accent); color: var(--accent); }
 
-/* LANG TOGGLE BTN */
-.lang-toggle {
-  font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
-  background: none; border: 1px solid var(--border); color: var(--muted);
-  padding: 5px 10px; cursor: pointer; transition: all 0.2s;
-}
-.lang-toggle:hover { border-color: var(--accent); color: var(--accent); }
-.lang-toggle.active { border-color: rgba(200,241,53,0.5); color: var(--accent); background: rgba(200,241,53,0.06); }
-
 /* CV DOWNLOAD BTN */
 .cv-btn {
   font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
@@ -638,7 +629,6 @@ option { background: var(--surface); }
     <li><a href="https://www.facebook.com/eremitasfiliperemitaphotography" target="_blank">FB ↗</a></li>
   </ul>
   <div class="nav-actions">
-    <button class="lang-toggle" id="langToggle" onclick="toggleLang()">🇸🇮 SLO</button>
     <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()">☀️ Light</button>
     <button class="cv-btn" onclick="downloadCV()">↓ CV</button>
   </div>
@@ -647,7 +637,7 @@ option { background: var(--surface); }
 <!-- HERO -->
 <section class="hero">
   <div class="hero-left">
-    <div class="hero-tag" data-en="I Make Ads That Sell. Not Just Look Good." data-sl="Delam oglase, ki prodajajo. Ne samo lepo izgledajo.">I Make Ads That Sell. Not Just Look Good.</div>
+    <div class="hero-tag">I Make Ads That Sell. Not Just Look Good.</div>
     <h1>Meta Ads<br><em>Specialist</em></h1>
     <p class="hero-sub">Meta Ads specialist · AI prompt engineer · Creative lead · Cross-border scaling across IT, HU, PL, CZ · 7-figure spend managed profitably · GEO · CRO · CAPI · AI-native workflow. Based in Slovenia.</p>
     <div class="hero-cta">
@@ -671,18 +661,6 @@ option { background: var(--surface); }
     <div class="stat-card reveal">
       <div><div class="stat-label">Avg. CPC</div><div class="stat-sub">Across all active campaigns</div></div>
       <div><div class="stat-val">€0.12</div><div class="stat-sub">30-day avg</div></div>
-    </div>
-    <div class="stat-card reveal">
-      <div><div class="stat-label">Meta Ad Spend Managed</div><div class="stat-sub">Profitably, across 13 markets</div></div>
-      <div><div class="stat-val">6<span style="font-size:16px;color:var(--muted)">fig+</span></div><div class="stat-sub">€€€</div></div>
-    </div>
-    <div class="stat-card reveal">
-      <div><div class="stat-label">Online Advertising</div><div class="stat-sub">2Digit d.o.o. — Full-time</div></div>
-      <div><div class="stat-val">5+</div><div class="stat-sub">years</div></div>
-    </div>
-    <div class="stat-card reveal">
-      <div><div class="stat-label">Countries Covered</div><div class="stat-sub">Meta/Facebook Ads</div></div>
-      <div><div class="stat-val">13</div><div class="stat-sub">markets</div></div>
     </div>
     <div class="stat-card reveal">
       <div><div class="stat-label">Photography</div><div class="stat-sub">Eremita's s.p. — Active</div></div>
@@ -731,7 +709,7 @@ option { background: var(--surface); }
 <section id="about">
   <div class="section-header reveal">
     <span class="section-num">01 —</span>
-    <h2 data-en="About <em>Me</em>" data-sl="O <em>meni</em>">About <em>Me</em></h2>
+    <h2>About <em>Me</em></h2>
   </div>
   <div class="about-grid">
     <div class="about-text reveal">
@@ -783,7 +761,7 @@ option { background: var(--surface); }
 <section id="skills">
   <div class="section-header reveal">
     <span class="section-num">02 —</span>
-    <h2 data-en="Core <em>Skills</em>" data-sl="Ključne <em>veščine</em>">Core <em>Skills</em></h2>
+    <h2>Core <em>Skills</em></h2>
   </div>
   <div class="skills-grid">
     <div class="skill-block reveal">
@@ -853,7 +831,7 @@ option { background: var(--surface); }
 <section id="approach">
   <div class="section-header reveal">
     <span class="section-num">03 —</span>
-    <h2 data-en="How I <em>Work</em>" data-sl="Kako <em>delam</em>">How I <em>Work</em></h2>
+    <h2>How I <em>Work</em></h2>
   </div>
 
   <p class="approach-intro reveal">
@@ -1056,7 +1034,7 @@ option { background: var(--surface); }
 <section id="experience">
   <div class="section-header reveal">
     <span class="section-num">05 —</span>
-    <h2 data-en="Work <em>History</em>" data-sl="Delovne <em>izkušnje</em>">Work <em>History</em></h2>
+    <h2>Work <em>History</em></h2>
   </div>
   <div class="exp-list">
 
@@ -1141,7 +1119,7 @@ option { background: var(--surface); }
 <section id="creatives">
   <div class="section-header reveal">
     <span class="section-num">05 —</span>
-    <h2 data-en="Winner <em>Creatives</em>" data-sl="Zmagovalni <em>oglasi</em>">Winner <em>Creatives</em></h2>
+    <h2>Winner <em>Creatives</em></h2>
   </div>
 
   <p class="creatives-intro reveal">
@@ -1169,7 +1147,7 @@ option { background: var(--surface); }
 <section id="fit">
   <div class="section-header reveal">
     <span class="section-num">09 —</span>
-    <h2 data-en="Why <em>Me</em>" data-sl="Zakaj <em>jaz</em>">Why <em>Me</em></h2>
+    <h2>Why <em>Me</em></h2>
   </div>
   <div class="fit-grid">
     <div class="fit-card reveal">
@@ -1678,34 +1656,6 @@ function toggleTheme() {
     const btn = document.getElementById('themeToggle');
     if (btn) btn.textContent = '🌙 Dark';
   }
-})();
-
-// ── LANGUAGE TOGGLE ──────────────────────────────────────────────────────────
-let currentLang = localStorage.getItem('fe_lang') || 'en';
-
-function toggleLang() {
-  currentLang = currentLang === 'en' ? 'sl' : 'en';
-  applyLang(currentLang);
-  localStorage.setItem('fe_lang', currentLang);
-}
-
-function applyLang(lang) {
-  const btn = document.getElementById('langToggle');
-  btn.textContent = lang === 'en' ? '🇸🇮 SLO' : '🇬🇧 ENG';
-  btn.classList.toggle('active', lang === 'sl');
-
-  // Switch all elements with data-en / data-sl attributes
-  document.querySelectorAll('[data-en][data-sl]').forEach(el => {
-    el.innerHTML = lang === 'sl' ? el.dataset.sl : el.dataset.en;
-  });
-
-  // Hero tag special
-  const tag = document.querySelector('.hero-tag');
-  if (tag && tag.dataset[lang]) tag.textContent = tag.dataset[lang];
-}
-
-(function initLang() {
-  if (currentLang === 'sl') applyLang('sl');
 })();
 
 // ── CV DOWNLOAD ──────────────────────────────────────────────────────────────
